@@ -1,10 +1,10 @@
 import { Component, OnInit } from '@angular/core';
-import { Cliente } from './cliente';
 import { FormsModule } from '@angular/forms';
-import { ClientesService } from './clientes.service';
 import { Router, ActivatedRoute } from '@angular/router';
 import swal from 'sweetalert2';
 import { CommonModule } from '@angular/common';
+import { ProductsService } from './products.service';
+import { Product } from './product';
 
 @Component({
   selector: 'app-form',
@@ -12,46 +12,48 @@ import { CommonModule } from '@angular/common';
   imports: [FormsModule, CommonModule],
   templateUrl: './form.component.html',
   styleUrl: './form.component.css',
-  providers: [ClientesService],
+  providers: [ProductsService],
 })
 export class FormComponent implements OnInit {
- cliente: Cliente = new Cliente();
-titulo: string ="TU MADRE"
+  product: Product = new Product();
+  titulo: string = 'TU MADRE';
 
+  constructor(
+    private productsService: ProductsService,
+    private router: Router,
+    private activatedRoute: ActivatedRoute
+  ) {}
 
-constructor (private clientesService: ClientesService,
-  private router: Router,
-  private activatedRoute: ActivatedRoute) {}
-
-ngOnInit() {
-this.cargarCliente();
-}
-
-cargarCliente(): void{
-this.activatedRoute.params.subscribe(params=>{
-  let id = params['id']
-  if(id){
-    this.clientesService.getCliente(id).subscribe((cliente) => this.cliente = cliente)
+  ngOnInit() {
+    this.cargarProductos();
   }
-})
-}
 
+  cargarProductos(): void {
+    this.activatedRoute.params.subscribe((params) => {
+      let id = params['id'];
+      if (id) {
+        this.productsService
+          .getProduct(id)
+          .subscribe((product) => (this.product = product));
+      }
+    });
+  }
 
- create(): void {
- this.clientesService.create(this.cliente)
- .subscribe(json => {
-  this.router.navigate(['/clientes'])
-  swal.fire('Nuevo cliente', `Cliente creado con exito!`, 'success')
-   }
- );
-}
+  create(): void {
+    this.productsService.createProducts(this.product).subscribe((json) => {
+      this.router.navigate(['/products']);
+      swal.fire('Nuevo cliente', `Cliente creado con exito!`, 'success');
+    });
+  }
 
-update():void {
-  this.clientesService.update(this.cliente).subscribe(json => {
-    this.router.navigate(['/clientes'])
-    swal.fire('Cliente Actualizado', `Cliente ${json.cliente.nombre} actualizado con exito!`, 'success');
-  })
-}
-
-
+  update(): void {
+    this.productsService.updateProduct(this.product).subscribe((json) => {
+      this.router.navigate(['/products']);
+      swal.fire(
+        'Cliente Actualizado',
+        `Product ${json.product.description} actualizado con exito!`,
+        'success'
+      );
+    });
+  }
 }

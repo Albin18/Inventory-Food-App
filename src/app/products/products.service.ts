@@ -54,6 +54,5 @@ deleteProduct(id: Product): Observable<any>{
       return throwError(e);
     })
   )
-}
-
+ }
 }
