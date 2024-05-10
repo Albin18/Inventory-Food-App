@@ -3,39 +3,78 @@
   <div class="card-body">
     <form>
       <div class="form-group row">
-        <label for="nombre" class="col-form-label col-sm-2">NOMBRE</label>
+        <label for="nombre" class="col-form-label col-sm-2">Description</label>
         <div class="col-sm-6">
           <input
             type="text"
             class="form-control my-2"
-            [(ngModel)]="cliente.nombre"
-            name="nombre"
+            [(ngModel)]="product.description"
+            name="description"
             required
           />
         </div>
       </div>
 
       <div class="form-group row">
-        <label for="" class="col-form-label col-sm-2">APELLIDO</label>
+        <label for="" class="col-form-label col-sm-2">BRAND</label>
         <div class="col-sm-6">
           <input
             type="text"
             class="form-control my-2"
-            [(ngModel)]="cliente.apellido"
-            name="apellido"
+            [(ngModel)]="product.brand"
+            name="brand"
             required
           />
         </div>
       </div>
 
       <div class="form-group row">
-        <label for="" class="col-form-label col-sm-2">EMAIL</label>
+        <label for="" class="col-form-label col-sm-2">QUANTITY</label>
         <div class="col-sm-6">
           <input
             type="text"
             class="form-control my-2"
-            [(ngModel)]="cliente.email"
-            name="email"
+            [(ngModel)]="product.quantity"
+            name="quantity"
+            required
+          />
+        </div>
+      </div>
+
+      <div class="form-group row">
+        <label for="" class="col-form-label col-sm-2">PRICE</label>
+        <div class="col-sm-6">
+          <input
+            type="text"
+            class="form-control my-2"
+            [(ngModel)]="product.price"
+            name="price"
+            required
+          />
+        </div>
+      </div>
+
+      <div class="form-group row">
+        <label for="" class="col-form-label col-sm-2">BUYING</label>
+        <div class="col-sm-6">
+          <input
+            type="text"
+            class="form-control my-2"
+            [(ngModel)]="product.buy_at"
+            name="buy_at"
+            required
+          />
+        </div>
+      </div>
+
+      <div class="form-group row">
+        <label for="" class="col-form-label col-sm-2">CATEGORY</label>
+        <div class="col-sm-6">
+          <input
+            type="text"
+            class="form-control my-2"
+            [(ngModel)]="product.category"
+            name="category"
             required
           />
         </div>
@@ -47,7 +86,7 @@
             class="btn btn-primary"
             role="button"
             (click)="create()"
-            *ngIf="!cliente.id; else elseBlock"
+            *ngIf="!product.id; else elseBlock"
           >
             CREAR
           </button>

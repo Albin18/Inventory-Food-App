@@ -40,9 +40,10 @@ export class FormComponent implements OnInit {
   }
 
   create(): void {
-    this.productsService.createProducts(this.product).subscribe((json) => {
+    this.productsService.createProducts(this.product).
+    subscribe(json => {
       this.router.navigate(['/products']);
-      swal.fire('Nuevo cliente', `Cliente creado con exito!`, 'success');
+      swal.fire('Nuevo Producto', `Cliente creado con exito!`, 'success');
     });
   }
 
