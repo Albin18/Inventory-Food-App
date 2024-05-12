@@ -5,7 +5,7 @@ import { Product } from './product';
 
 @Injectable()
 export class ProductsService {
-  private urlEndPoint: string = "http:localhost:8080/api/products"
+  private urlEndPoint: string = "http://localhost:8080/api/products"
 
 private httpHeaders= new HttpHeaders({'Content-Type': 'application/json'})
 
@@ -17,7 +17,7 @@ private httpHeaders= new HttpHeaders({'Content-Type': 'application/json'})
         console.log(e.error.mensaje);
         return throwError(e);
       })
-    )
+    );
   }
 
   getProduct(id: Product): Observable<Product>{

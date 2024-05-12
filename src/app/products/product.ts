@@ -4,6 +4,6 @@ export class Product{
   brand: any;
   quantity: any;
   price: any;
-  buy_at: any;
+  buyAt: any;
   category: any;
 }

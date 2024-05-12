@@ -32,7 +32,7 @@
         <label for="" class="col-form-label col-sm-2">QUANTITY</label>
         <div class="col-sm-6">
           <input
-            type="text"
+            type="number"
             class="form-control my-2"
             [(ngModel)]="product.quantity"
             name="quantity"
@@ -45,7 +45,7 @@
         <label for="" class="col-form-label col-sm-2">PRICE</label>
         <div class="col-sm-6">
           <input
-            type="text"
+            type="number"
             class="form-control my-2"
             [(ngModel)]="product.price"
             name="price"
@@ -55,28 +55,56 @@
       </div>
 
       <div class="form-group row">
-        <label for="" class="col-form-label col-sm-2">BUYING</label>
+        <label for="category" class="col-form-label col-sm-2">CATEGORY</label>
         <div class="col-sm-6">
           <input
-            type="text"
-            class="form-control my-2"
-            [(ngModel)]="product.buy_at"
-            name="buy_at"
-            required
-          />
-        </div>
-      </div>
-
-      <div class="form-group row">
-        <label for="" class="col-form-label col-sm-2">CATEGORY</label>
-        <div class="col-sm-6">
-          <input
-            type="text"
-            class="form-control my-2"
+            type="radio"
             [(ngModel)]="product.category"
+            [value]="'Verdura'"
             name="category"
-            required
+            id="verdura"
           />
+          <label for="verdura">Verdura </label>
+          <input
+            type="radio"
+            [(ngModel)]="product.category"
+            [value]="'Carne'"
+            name="category"
+            id="carne"
+          />
+          <label for="carne">Carne </label>
+          <input
+            type="radio"
+            [(ngModel)]="product.category"
+            [value]="'Charcuteria'"
+            name="category"
+            id="charcuteria"
+          />
+          <label for="charcuteria">Charcuteria </label>
+          <input
+            type="radio"
+            [(ngModel)]="product.category"
+            [value]="'Alacena'"
+            name="category"
+            id="alacena"
+          />
+          <label for="alacena">Alacena </label>
+          <input
+            type="radio"
+            [(ngModel)]="product.category"
+            [value]="'Fruta'"
+            name="category"
+            id="fruta"
+          />
+          <label for="Fruta">Fruta </label>
+          <input
+            type="radio"
+            [(ngModel)]="product.category"
+            [value]="'Dulces'"
+            name="category"
+            id="dulces"
+          />
+          <label for="Dulces">Dulces</label>
         </div>
       </div>
 
