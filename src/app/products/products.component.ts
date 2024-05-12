@@ -4,11 +4,12 @@ import { RouterModule } from '@angular/router';
 import swal from 'sweetalert2';
 import { Product } from './product';
 import { ProductsService } from './products.service';
+import { OrderByPipe } from './order-by.pipe';
 
 @Component({
   selector: 'app-products',
   standalone: true,
-  imports: [CommonModule, RouterModule],
+  imports: [CommonModule, RouterModule, OrderByPipe],
   templateUrl: './products.component.html',
   styleUrl: './products.component.css',
   providers: [ProductsService],
