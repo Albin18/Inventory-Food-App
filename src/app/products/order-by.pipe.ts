@@ -7,8 +7,23 @@ import { Product } from './product';
 })
 export class OrderByPipe implements PipeTransform {
 
-  transform(products: Product[]): Product[] {
-    return products.sort((a,b) => a.quantity - b.quantity);
+  transform(products: Product[], orderBy: string, orderDirection: string): Product[] {
+  if(!products || !orderBy || !orderDirection) {
+    return products;
+  }
+
+  return products.sort((a,b) => {
+    const valueA = a[orderBy];
+    const valueB = b[orderBy];
+
+    if(typeof valueA == 'string') {
+      return orderDirection === 'asc' ? valueA.localeCompare(valueB) : valueB.localeCompare(valueA)
+    } else {
+      return orderDirection === 'asc' ? valueA - valueB : valueB - valueA;
+    }
+  })
+
   }
 
 }
+

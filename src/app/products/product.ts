@@ -6,4 +6,6 @@ export class Product{
   price: any;
   buyAt: any;
   category: any;
+
+  [key:string]: any
 }

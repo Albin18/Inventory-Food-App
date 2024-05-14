@@ -2,15 +2,34 @@
   <div class="card-header">CLIENTES</div>
   <div class="card-body">
     <h5 class="card-title">Lista de Clientes</h5>
-    <div class="my-2 text-left">
-      <button
-        class="btn btn-rounded btn-primary"
-        type="button"
-        [routerLink]="['/products/form']"
-        routerLinkActive="router-link-active"
-      >
-        Crear Cliente
-      </button>
+    <div class="container my-2 text-left">
+      <div class="row">
+        <div class="col">
+          <button
+            class="btn btn-rounded btn-primary"
+            type="button"
+            [routerLink]="['/products/form']"
+            routerLinkActive="router-link-active"
+          >
+            Crear Cliente
+          </button>
+        </div>
+        <div class="col">
+          <select class="form-select" [(ngModel)]="parameter1">
+            <option selected>ORDER BY...</option>
+            <option value="category">CATEGORY</option>
+            <option value="quantity">QUANTITY</option>
+            <option value="description">DESCRIPTION</option>
+          </select>
+        </div>
+        <div class="col">
+          <select class="form-select" [(ngModel)]="parameter2">
+            <option selected>ASC/DESC</option>
+            <option value="asc">ASC</option>
+            <option value="desc">DESC</option>
+          </select>
+        </div>
+      </div>
     </div>
     <div *ngIf="products?.length == 0" class="alert alert-info">
       NO HAY REGISTROS EN LA BASE DE DATOS
@@ -33,7 +52,9 @@
         </tr>
       </thead>
       <tbody>
-        <tr *ngFor="let product of products | orderBy">
+        <tr
+          *ngFor="let product of products | orderBy : parameter1 : parameter2"
+        >
           <td>{{ product.id }}</td>
           <td>{{ product.description }}</td>
           <td>{{ product.brand }}</td>

@@ -1,23 +1,28 @@
 import { CommonModule } from '@angular/common';
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, NgModule } from '@angular/core';
+import {FormsModule} from '@angular/forms';
 import { RouterModule } from '@angular/router';
 import swal from 'sweetalert2';
 import { Product } from './product';
 import { ProductsService } from './products.service';
 import { OrderByPipe } from './order-by.pipe';
 
+
+
 @Component({
   selector: 'app-products',
   standalone: true,
-  imports: [CommonModule, RouterModule, OrderByPipe],
+  imports: [CommonModule, RouterModule, OrderByPipe, FormsModule],
   templateUrl: './products.component.html',
   styleUrl: './products.component.css',
   providers: [ProductsService],
 })
 export class ProductsComponent implements OnInit {
   products: any;
+  parameter1 = 'description'
+  parameter2 = 'asc'
 
-  constructor(private productService: ProductsService) {}
+ constructor(private productService: ProductsService) {}
 
   ngOnInit() {
     this.productService
@@ -54,4 +59,5 @@ export class ProductsComponent implements OnInit {
         }
       });
   }
+
 }
