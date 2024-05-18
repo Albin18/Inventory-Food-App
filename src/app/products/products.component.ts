@@ -33,8 +33,8 @@ export class ProductsComponent implements OnInit {
   delete(product: Product): void {
     swal
       .fire({
-        title: 'Are you sure?',
-        text: `Seguro que desea eliminar al cliente ${product.description}`,
+        title: 'Desea eliminar el producto?',
+        text: `Se eliminara el producto ${product.description}`,
         icon: 'warning',
         showCancelButton: true,
         confirmButtonColor: '#3085d6',
@@ -49,11 +49,11 @@ export class ProductsComponent implements OnInit {
             .subscribe((response) => {
               swal.fire({
                 title: 'Eliminado!',
-                text: 'El cliente ha sido eliminado.',
+                text: 'El Producto ha sido eliminado.',
                 icon: 'success',
               });
               this.products = this.products.filter(
-                (clie: Product) => clie !== product
+                (prod: Product) => prod !== product
               );
             });
         }

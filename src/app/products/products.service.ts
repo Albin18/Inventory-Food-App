@@ -39,7 +39,7 @@ private httpHeaders= new HttpHeaders({'Content-Type': 'application/json'})
   }
 
   updateProduct(product: Product): Observable<any>{
-    return this.http.put<any[]>(`${this.urlEndPoint}/${product.id}`, {headers: this.httpHeaders}).pipe(
+    return this.http.put<any>(`${this.urlEndPoint}/${product.id}`, product, {headers: this.httpHeaders}).pipe(
       catchError(e => {
         console.log(e.error.mensaje);
         return throwError(e);

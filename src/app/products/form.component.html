@@ -3,7 +3,7 @@
   <div class="card-body">
     <form>
       <div class="form-group row">
-        <label for="nombre" class="col-form-label col-sm-2">Description</label>
+        <label for="nombre" class="col-form-label col-sm-2">DESCRIPTION</label>
         <div class="col-sm-6">
           <input
             type="text"
@@ -116,11 +116,11 @@
             (click)="create()"
             *ngIf="!product.id; else elseBlock"
           >
-            CREAR
+            CREATE
           </button>
           <ng-template #elseBlock>
             <button class="btn btn-primary" role="button" (click)="update()">
-              EDITAR
+              EDIT
             </button>
           </ng-template>
         </div>

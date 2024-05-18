@@ -16,7 +16,7 @@ import { Product } from './product';
 })
 export class FormComponent implements OnInit {
   product: Product = new Product();
-  titulo: string = 'TU MADRE';
+  titulo: string = 'INVENTARIO DE ALIMENTOS DEL HOGAR';
 
   constructor(
     private productsService: ProductsService,
@@ -43,7 +43,7 @@ export class FormComponent implements OnInit {
     this.productsService.createProducts(this.product).
     subscribe(json => {
       this.router.navigate(['/products']);
-      swal.fire('Nuevo Producto', `Cliente creado con exito!`, 'success');
+      swal.fire('Nuevo Producto', `Producto agregado!`, 'success');
     });
   }
 
@@ -51,7 +51,7 @@ export class FormComponent implements OnInit {
     this.productsService.updateProduct(this.product).subscribe((json) => {
       this.router.navigate(['/products']);
       swal.fire(
-        'Cliente Actualizado',
+        'Producto Actualizado',
         `Product ${json.product.description} actualizado con exito!`,
         'success'
       );

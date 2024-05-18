@@ -1,7 +1,7 @@
 <div class="card border-info mb-3">
-  <div class="card-header">CLIENTES</div>
+  <div class="card-header">REGISTRO DE MERCADO CON FILTRO MEDIANTE PIPES</div>
   <div class="card-body">
-    <h5 class="card-title">Lista de Clientes</h5>
+    <h5 class="card-title">LISTA DE PRODUCTOS</h5>
     <div class="container my-2 text-left">
       <div class="row">
         <div class="col">
@@ -11,7 +11,7 @@
             [routerLink]="['/products/form']"
             routerLinkActive="router-link-active"
           >
-            Crear Cliente
+            CREAR PRODUCTO
           </button>
         </div>
         <div class="col">
@@ -32,7 +32,7 @@
       </div>
     </div>
     <div *ngIf="products?.length == 0" class="alert alert-info">
-      NO HAY REGISTROS EN LA BASE DE DATOS
+      THERE ARE NO RECORDS IN THE DATABASE
     </div>
     <table
       class="table table-bordered table-striped"
@@ -41,14 +41,14 @@
       <thead>
         <tr>
           <th>id</th>
-          <th>description</th>
-          <th>brand</th>
-          <th>quantity</th>
-          <th>price</th>
-          <th>buying</th>
-          <th>category</th>
-          <th>Editar</th>
-          <th>ELIMINAR</th>
+          <th>Description</th>
+          <th>Brand</th>
+          <th>Quantity</th>
+          <th>Price</th>
+          <th>Buying</th>
+          <th>Category</th>
+          <th>EDIT</th>
+          <th>DELETE</th>
         </tr>
       </thead>
       <tbody>
@@ -69,7 +69,7 @@
               [routerLink]="['/products/form', product.id]"
               class="btn btn-primary"
             >
-              EDITAR
+              EDIT
             </button>
           </td>
           <td>
@@ -79,7 +79,7 @@
               (click)="delete(product)"
               class="btn btn-danger"
             >
-              ELIMINAR
+              DELETE
             </button>
           </td>
         </tr>
