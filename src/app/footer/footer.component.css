@@ -4,12 +4,14 @@
   border: 10% 0 0 0;
 }
 .contact-info{
-  padding: 50px 10px 10px;
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(160px, auto));
+  padding-top: 10%;
+  padding: 80px 10px 10px;
+  align-items: center;
+  justify-content: center;
+  display: flex;
 }
 .contact-info h3{
-  color: rgb(255, 230, 0);
+  color: aqua;
   font-size:25px ;
   text-transform: uppercase;
   margin-bottom: 10px;
@@ -24,26 +26,10 @@
   cursor: pointer;
   transition: all .42s;
 }
-.contact-info p:hover{
-  color: rgb(255, 230, 0);
-}
-.first-info img{
-  width: 150px;
-  height: auto;
-}
-.social-icon i{
-  color: #fff;
-  margin-right: 10px;
-  font-size: 30px;
-  transition: all .42s;
-}
-.social-icon i:hover{
-  transform: scale(1.3);
-}
 .copyright {
   background-color: black;
   text-align: center;
-  padding: 20px;
+  padding: 50px;
 }
 .copyright p{
   color: #fff;

@@ -1,4 +1,4 @@
-<div class="card border-info mb-3">
+<div class="card border-info mt-4 mx-2">
   <div class="card-header">REGISTRO DE MERCADO CON FILTRO MEDIANTE PIPES</div>
   <div class="card-body">
     <h5 class="card-title">LISTA DE PRODUCTOS</h5>
@@ -17,9 +17,12 @@
         <div class="col">
           <select class="form-select" [(ngModel)]="parameter1">
             <option selected>ORDER BY...</option>
-            <option value="category">CATEGORY</option>
-            <option value="quantity">QUANTITY</option>
             <option value="description">DESCRIPTION</option>
+            <option value="brand">BRAND</option>
+            <option value="quantity">QUANTITY</option>
+            <option value="price">PRICE</option>
+            <option value="buyAt">BUYING</option>
+            <option value="category">CATEGORY</option>
           </select>
         </div>
         <div class="col">
